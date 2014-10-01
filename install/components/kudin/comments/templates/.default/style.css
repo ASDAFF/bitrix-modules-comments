@@ -1,0 +1,46 @@
+.otzyv_form {
+    display: none;
+}
+.otzyv_form textarea {
+    font-size: 13px;
+    height: 90px;
+    margin-bottom: 10px;
+    resize: none;
+    width: 700px;
+}
+
+.err {
+    color: red;
+}
+
+.reviews .box {
+    overflow: hidden;
+}
+.reviews .name {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+.reviews .date {
+    font-size: 12px;
+}
+.list .align-right {
+    width: 700px;    float: right;
+}
+.reviews .list .align-left {
+    float: left;
+    position: relative;
+    width: 170px;
+}
+
+.reviews .list {
+    list-style: none outside none;
+    margin: 0;
+    padding-top: 10px;
+}
+.reviews .list > li {
+     border-top: 1px solid #e5e5e5;
+     overflow: hidden;
+     padding: 13px 5px 12px 20px;
+ }
