@@ -25,10 +25,12 @@ class comments extends CModule {
     }
 
     function InstallFiles() {
-        CopyDirFiles(
-            $_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/" . $this->MODULE_ID . "/install/components/", 
-            $_SERVER["DOCUMENT_ROOT"] . "/bitrix/components/", true, true
-        );
+        foreach(array('components', 'tools') as $dirName) {
+            CopyDirFiles(
+                $_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/" . $this->MODULE_ID . "/install/" . $dirName . "/", 
+                $_SERVER["DOCUMENT_ROOT"] . "/bitrix/ . $dirName . /", true, true
+            );   
+        } 
     }
 
     public function DoInstall() {

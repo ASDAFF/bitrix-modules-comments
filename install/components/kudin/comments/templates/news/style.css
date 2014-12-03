@@ -1,0 +1,27 @@
+.comment-panel{
+    padding-right: 15px; 
+    padding-top: 10px;
+    float: right;
+} 
+.comment-edit{
+    background-image: url('images/pencil.png');
+    width: 16px;
+    height: 16px; 
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+}
+.comment-delete{
+    float: left;
+    background-image: url('images/remove.png');
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.comment-save{
+    border: 1px solid #a8d204;
+    padding: 4px 10px;
+}
+
+ 

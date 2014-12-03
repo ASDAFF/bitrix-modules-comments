@@ -1,8 +1,7 @@
 <?php
 $arAllOptions = Array(
-    Array("iblock", "Инфоблок для комментариев", "", Array("text", 50)),
-   // Array("no_authorized_user_can_commnet", "Разрешить комментировать неавторизованным пользователям", "", Array("checkbox")),
-   
+    array("iblock", "Инфоблок для хранения комментариев", "", array("text", 50)),
+    array("can_edit", "Разрешить пользователям редактировать свои комментарии", "", array("checkbox")),
 );
 $aTabs = array(
     array("DIV" => "edit1", "TAB" => GetMessage("MAIN_TAB_SET"), "ICON" => "ib_settings", "TITLE" => GetMessage("MAIN_TAB_TITLE_SET")),
@@ -15,21 +14,22 @@ if ($REQUEST_METHOD == "POST" && strlen($Update . $Apply . $RestoreDefaults) > 0
         foreach ($arAllOptions as $arOption) {
             $name = $arOption[0];
             $val = $_REQUEST[$name];
-            if ($arOption[2][0] == "checkbox" && $val != "Y")
+            if ($arOption[2][0] == "checkbox" && $val != "Y") {
                 $val = "N";
+            }
             COption::SetOptionString("comments", $name, $val, $arOption[1]);
         }
     }
-    if (strlen($Update) > 0 && strlen($_REQUEST["back_url_settings"]) > 0)
+    if (strlen($Update) > 0 && strlen($_REQUEST["back_url_settings"]) > 0) {
         LocalRedirect($_REQUEST["back_url_settings"]);
-    else
+    } else {
         LocalRedirect($APPLICATION->GetCurPage() . "?mid=" . urlencode($mid) . "&lang=" . urlencode(LANGUAGE_ID) . "&back_url_settings=" . urlencode($_REQUEST["back_url_settings"]) . "&" . $tabControl->ActiveTabParam());
+    }
 }
 $tabControl->Begin();
 ?>
 <form method="post" action="<? echo $APPLICATION->GetCurPage() ?>?mid=<?= urlencode($mid) ?>&amp;lang=<? echo LANGUAGE_ID ?>">
-    <? $tabControl->BeginNextTab(); ?>
-    <?
+    <? $tabControl->BeginNextTab();   
     foreach ($arAllOptions as $arOption):
         $val = COption::GetOptionString("comments", $arOption[0], $arOption[2]);
         $type = $arOption[3];
